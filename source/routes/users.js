@@ -1,11 +1,12 @@
-const Sequelize = require("sequelize");
-import controller from '../controllers/users';
+const express = require("express");
+const User = require("../controllers/Users");
+
 const router = express.Router();
 
-router.get('/users', controller.getPosts);
-router.get('/users/:id', controller.getPost);
-router.put('/users/:id', controller.updatePost);
-router.delete('/users/:id', controller.deletePost);
-router.post('/users', controller.addPost);
+router.get('/users', User.get);
+router.get('/users/:id', User.getOne);
+router.put('/users/:id', User.update);
+router.delete('/users/:id', User.delete);
+router.post('/users', User.add);
 
-export = router;
+module.exports = router;
